@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Habit Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/icon.png" />
+</head> 
+<body>
+    
+    <div id="container">
+        <section class="home">
+        <div>
+            <img id="logo" src="images/habit.png" alt="Smart Habit Tracker Logo" >
+        </div>
+        <div id="title">
+            <h1>
+                Smart Habit Tracker
+            </h1>
+            <h3>"Start Your Journey Now"</h3>            
+        </div>
+    </section>
+    <section class="tasks">
+        
+        <div id="today">
+            <div class="tasks_today">
+                <img src="images/today.png" alt="Image">
+            </div>
+            <div class="tasks_today" >
+                <h2 id="today_num">0</h2>
+            </div>
+            <div class="tasks_text">
+                <h3>Today</h3>
+            </div>
+        </div>
+       
+        <div id="scheduled">
+            <div class="tasks_scheduled">
+                <img src="images/Scheduled.png" alt="Image">
+            </div>
+            <div class="tasks_scheduled">
+                <h2 id="sch_num">0</h2>
+            </div>
+            <div class="tasks_text">
+                <h3>Scheduled</h3>
+            </div>
+        </div>
+    </section>
+    <section class="lists">
+        <div>
+            <label class="habit_lbl" for="habit-select">Choose a habit</label>
+            <br>
+            <select id="habit-select" name="habit">
+            <option value="drink-water">Drink Water</option>
+            <option value="exercise">Exercise</option>
+            <option value="read">Read</option>
+            <option value="meditate">Meditate</option>
+            <option value="custom">Custom Habit</option>
+            </select>
+        </div>
+        
+        <div>
+            <input id="habit_textbox" type="text" placeholder="Enter habit name">
+            
+        </div>
+        
+        <div class="toggle">
+                <label class="habit_lbl">Date </label>
+                <input type="checkbox" id="check">
+                <label class="toggleSwitch" for="check"></label>
+        </div>
+         <div class="toggle">
+                <label class="habit_lbl">Time </label>
+                <input type="checkbox" id="check">
+                <label class="toggleSwitch" for="check"></label>
+        </div>        
+    </section>
+    <!--Hidden -->
+    <section class="dateTime">
+        <div id="calendar">
+            <label class="habit_lbl" for="habit-date">Choose a date:</label>
+            <input type="date" id="habit-date">
+        </div>
+        <div id="time">
+            <label class="habit_lbl" for="start-time">Start Time:</label>
+            <input type="time" id="start-time">
+            <br>
+            <label class="habit_lbl" for="end-time">End Time:</label>
+            <input type="time" id="end-time">
+        </div>
+    </section>
+
+    <section class="add-habits">
+        <button id="addBtn">+ Add to List</button>
+        <br>
+        <!--Hidden -->
+        <div class="display">
+            <label class="habit_lbl" for="addBtn">Example</label>
+            <br>
+            <label>------------------------------</label>
+        </div>
+    </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

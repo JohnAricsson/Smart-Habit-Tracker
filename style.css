@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url("images/Background.jpg");
+  background-size: cover;        
+  background-position: center;    
+  background-repeat: no-repeat;  
+  /*overflow:hidden*/ 
+  display: flex;
+  justify-content: center;  
+  align-items: center; 
+}
+
+
+#container {
+    background-color: rgb(240,248,255, 0.7);
+    border-radius: 20px;
+    width: 35%;    
+    height: 90vh;
+    display: grid;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#logo{
+   width: 7rem;
+   height: 7rem;
+}
