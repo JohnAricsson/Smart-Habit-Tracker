@@ -14,42 +14,37 @@
         <div>
             <img id="logo" src="images/habit.png" alt="Smart Habit Tracker Logo" >
         </div>
-        <div id="title">
+        <div>
             <h1>
-                Smart Habit Tracker
+                 Smart Habit Tracker
             </h1>
             <h3>"Start Your Journey Now"</h3>            
         </div>
     </section>
     <section class="tasks">
-        
-        <div id="today">
-            <div class="tasks_today">
-                <img src="images/today.png" alt="Image">
-            </div>
-            <div class="tasks_today" >
-                <h2 id="today_num">0</h2>
-            </div>
-            <div class="tasks_text">
-                <h3>Today</h3>
-            </div>
-        </div>
-       
-        <div id="scheduled">
-            <div class="tasks_scheduled">
-                <img src="images/Scheduled.png" alt="Image">
-            </div>
-            <div class="tasks_scheduled">
-                <h2 id="sch_num">0</h2>
-            </div>
-            <div class="tasks_text">
-                <h3>Scheduled</h3>
-            </div>
-        </div>
-    </section>
+  <div class="task-box" id="today">
+    <div class="task-top">
+      <img src="images/today.png" alt="Image">
+      <h2 id="today_num">0</h2>
+    </div>
+    <div class="tasks_text">
+      <h3>Today</h3>
+    </div>
+  </div>
+
+  <div class="task-box" id="scheduled">
+    <div class="task-top">
+      <img src="images/Scheduled.png" alt="Image">
+      <h2 id="sch_num">0</h2>
+    </div>
+    <div class="tasks_text">
+      <h3>Scheduled</h3>
+    </div>
+  </div>
+</section>
     <section class="lists">
         <div>
-            <label class="habit_lbl" for="habit-select">Choose a habit</label>
+            <label class="habit_lbl" id="habittxt" for="habit-select">Choose a habit</label>
             <br>
             <select id="habit-select" name="habit">
             <option value="drink-water">Drink Water</option>
@@ -64,44 +59,40 @@
             <input id="habit_textbox" type="text" placeholder="Enter habit name">
             
         </div>
-        
-        <div class="toggle">
+        <div class="radiobutton">
+            <div class="toggle">
+            <div >
                 <label class="habit_lbl">Date </label>
-                <input type="checkbox" id="check">
-                <label class="toggleSwitch" for="check"></label>
+                <input type="checkbox" id="date-toggle">
+                <label class="toggleSwitch" for="date-toggle"></label>
+                <div class="dateTimeInput">            
+                    <input type="date" id="habit-date">
+                </div>
+            </div>
+            
+                
         </div>
          <div class="toggle">
+            <div >
                 <label class="habit_lbl">Time </label>
-                <input type="checkbox" id="check">
-                <label class="toggleSwitch" for="check"></label>
-        </div>        
-    </section>
-    <!--Hidden -->
-    <section class="dateTime">
-        <div id="calendar">
-            <label class="habit_lbl" for="habit-date">Choose a date:</label>
-            <input type="date" id="habit-date">
+                <input type="checkbox" id="time-toggle">
+                <label class="toggleSwitch" for="time-toggle"></label>
+                 <div class="dateTimeInput">            
+                     <input type="time" id="start-time">            
+                 </div>
+            </div>
+                
+        </div>       
         </div>
-        <div id="time">
-            <label class="habit_lbl" for="start-time">Start Time:</label>
-            <input type="time" id="start-time">
-            <br>
-            <label class="habit_lbl" for="end-time">End Time:</label>
-            <input type="time" id="end-time">
-        </div>
+         
     </section>
-
-    <section class="add-habits">
-        <button id="addBtn">+ Add to List</button>
-        <br>
-        <!--Hidden -->
-        <div class="display">
-            <label class="habit_lbl" for="addBtn">Example</label>
-            <br>
-            <label>------------------------------</label>
-        </div>
-    </section>
+    
+    <div class="add-habits">
+        <button id="addBtn">+ Add to List</button>               
     </div>
+    </div>
+
+    
     <script src="app.js"></script>
 </body>
 </html>

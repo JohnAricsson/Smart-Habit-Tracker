@@ -26,3 +26,190 @@ body {
    width: 7rem;
    height: 7rem;
 }
+
+.home h1{
+  font-size: 2rem;
+  font-family: 'Rubik', sans-serif;
+  color:#009ACD;    
+}
+.home h3{
+  font-size: 1.4rem;
+  font-family: 'Rubik', sans-serif;
+   margin: 0;
+}
+.tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  height: 70px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.task-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid gray;
+  padding: 20px;
+  width: 200px;
+  height: 70px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px; 
+}
+
+.task-top img {
+  width: 3rem;
+}
+
+.task-top h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.tasks_text {     
+  font-family: 'Rubik', sans-serif;
+  text-align: left ;
+  width: 100%;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;  
+  gap: 15px; 
+  margin-top: 10px;
+}
+.habit_lbl { 
+  
+  font-family: 'Rubik', sans-serif;
+  text-align: center ;
+  width: 100%;
+  font-size: large;
+  font-weight:500;
+   
+}
+
+#habit_textbox {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-family: 'Rubik', sans-serif;
+  text-align: center ;
+  font-size: large;
+  font-weight:500;
+  border-radius: 10px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  
+}
+#habit-select {    
+  width: 255px;               
+  margin: 0 auto;    
+  padding: 0.5rem 1rem;      
+  font-family: 'Rubik', sans-serif;
+  font-size: large;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid gray;  
+  box-sizing: border-box;
+  text-align: center;
+  color: gray;
+
+}
+.radiobutton{
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+  gap: 1rem;
+}
+
+#habittxt{
+  display: block;
+  font-size: 1.5rem;  
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+
+.toggleSwitch {
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 999px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggleSwitch::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+  transition: transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .toggleSwitch {
+  background-color: #4caf50;
+}
+
+input[type="checkbox"]:checked + .toggleSwitch::before {
+  transform: translateX(20px);
+}
+
+.dateTimeInput input {
+  margin-top: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid gray;
+  width: 115px;
+}
+.add-habits{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px; 
+}
+#addBtn{
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;  
+  border-radius: 999px;
+  background: linear-gradient(to bottom right, #33BEE6, #009ACD);
+  color: #f0f0f0;
+  border: none;
+  padding: 1rem 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+#addBtn:hover{
+  z-index: 0;
+  box-shadow: 0 10px 100px #008cff;
+  text-shadow: 0 0 10px #f0f0f0;
+  scale: 1.1;
+}
