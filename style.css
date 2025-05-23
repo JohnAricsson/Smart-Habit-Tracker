@@ -7,21 +7,30 @@ body {
   background-repeat: no-repeat;  
   /*overflow:hidden*/ 
   display: flex;
-  justify-content: center;  
+  justify-content:center;  
   align-items: center; 
+  margin-left:1rem ;
 }
 
 
-#container {
+.container {
     background-color: rgb(240,248,255, 0.7);
     border-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     width: 35%;    
     height: 90vh;
     display: grid;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);    
     text-align: center;
+    
 }
-
+#listContainer{
+  width: 15%; 
+  border-radius: 20px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
 #logo{
    width: 7rem;
    height: 7rem;
@@ -31,6 +40,13 @@ body {
   font-size: 2rem;
   font-family: 'Rubik', sans-serif;
   color:#009ACD;    
+}
+#listContainer h1{
+  padding: 1rem 0.5rem;
+  font-size: 1.7rem;
+  font-family: 'Rubik', sans-serif;
+  color:#009ACD;
+  text-decoration:underline;
 }
 .home h3{
   font-size: 1.4rem;
@@ -52,12 +68,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid gray;
+  border: 1px solid gray;
   padding: 20px;
   width: 200px;
   height: 70px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.task-box:hover{
+  transform: scale(1.1);
 }
 
 .task-top {
@@ -88,9 +108,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 5rem;  
+  height: 15rem;  
   gap: 15px; 
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .habit_lbl { 
   
@@ -112,22 +132,29 @@ body {
   border-radius: 10px;
   border: 1px solid gray;
   box-sizing: border-box;
-  
 }
+
 #habit-select {    
   width: 255px;               
   margin: 0 auto;    
-  padding: 0.5rem 1rem;      
+  padding: 0.5rem ;      
   font-family: 'Rubik', sans-serif;
-  font-size: large;
+  font-size: large;  
   font-weight: 500;
   border-radius: 8px;
-  border: 1px solid gray;  
-  box-sizing: border-box;
+  border: 1px solid gray; 
   text-align: center;
   color: gray;
-
 }
+#frequency-select{
+  font-family: 'Rubik', sans-serif;
+  font-size: large;  
+  font-weight: 500;
+  padding: 4px;
+  border: 0;
+  background-color: transparent;
+}
+
 .radiobutton{
   display: flex;
   justify-content: space-between;
@@ -189,7 +216,9 @@ input[type="checkbox"]:checked + .toggleSwitch::before {
 .add-habits{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items:center;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 50px; 
 }
 #addBtn{
@@ -212,4 +241,14 @@ input[type="checkbox"]:checked + .toggleSwitch::before {
   box-shadow: 0 10px 100px #008cff;
   text-shadow: 0 0 10px #f0f0f0;
   scale: 1.1;
+}
+
+#resetBtn {
+  background: transparent;
+  border: none;
+  color: #008cff;  
+  font-size: large;
+  text-decoration: underline;
+  font-family: 'Rubik', sans-serif;
+  cursor: pointer;
 }

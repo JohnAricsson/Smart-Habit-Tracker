@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="images/icon.png" />
 </head> 
-<body>
-    
-    <div id="container">
+<body>  
+    <div class ="container">
         <section class="home">
         <div>
             <img id="logo" src="images/habit.png" alt="Smart Habit Tracker Logo" >
@@ -46,7 +45,7 @@
         <div>
             <label class="habit_lbl" id="habittxt" for="habit-select">Choose a habit</label>
             <br>
-            <select id="habit-select" name="habit">
+            <select id="habit-select" >
             <option value="drink-water">Drink Water</option>
             <option value="exercise">Exercise</option>
             <option value="read">Read</option>
@@ -56,17 +55,16 @@
         </div>
         
         <div>
-            <input id="habit_textbox" type="text" placeholder="Enter habit name">
-            
+            <input id="habit_textbox" type="text" placeholder="Enter habit name" disabled>            
         </div>
         <div class="radiobutton">
             <div class="toggle">
             <div >
                 <label class="habit_lbl">Date </label>
-                <input type="checkbox" id="date-toggle">
+                <input type="checkbox" id="date-toggle" >
                 <label class="toggleSwitch" for="date-toggle"></label>
                 <div class="dateTimeInput">            
-                    <input type="date" id="habit-date">
+                    <input type="date" id="habit-date" disabled>
                 </div>
             </div>
             
@@ -78,20 +76,31 @@
                 <input type="checkbox" id="time-toggle">
                 <label class="toggleSwitch" for="time-toggle"></label>
                  <div class="dateTimeInput">            
-                     <input type="time" id="start-time">            
+                     <input type="time" id="habit-time" disabled>            
                  </div>
             </div>
                 
         </div>       
         </div>
-         
+         <div id="Frequency">
+            <label class="habit_lbl" for="frequency-select">Frequency : </label>            
+            <select id="frequency-select" name="frequency">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            </select>
+        </div>
     </section>
     
     <div class="add-habits">
-        <button id="addBtn">+ Add to List</button>               
+        <button id="addBtn">+ Add to List</button>
+         <button id="resetBtn">Reset</button>            
     </div>
     </div>
-
+    <div class="container" id="listContainer">
+        <h1>Your habit list</h1>
+       
+    </div>
     
     <script src="app.js"></script>
 </body>
