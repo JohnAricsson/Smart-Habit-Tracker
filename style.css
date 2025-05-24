@@ -26,7 +26,12 @@ body {
     
 }
 #listContainer{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center ;  
+  flex-direction: column;
   width: 15%; 
+  height: 90vh;
   border-radius: 20px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -46,7 +51,7 @@ body {
   font-size: 1.7rem;
   font-family: 'Rubik', sans-serif;
   color:#009ACD;
-  text-decoration:underline;
+  
 }
 .home h3{
   font-size: 1.4rem;
@@ -251,4 +256,11 @@ input[type="checkbox"]:checked + .toggleSwitch::before {
   text-decoration: underline;
   font-family: 'Rubik', sans-serif;
   cursor: pointer;
+}
+
+.habit-list{
+   font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;  
+  text-align: left;
 }
