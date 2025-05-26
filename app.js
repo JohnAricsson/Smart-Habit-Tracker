@@ -35,6 +35,9 @@ document.getElementById("time-toggle").addEventListener("change",function(){
     }
 });
 
+let today = 0 ;
+let schedule = 0;
+
 document.getElementById("addBtn").addEventListener("click", function () {
   let habitName = "";
   let dateValue = "";
@@ -56,11 +59,38 @@ document.getElementById("addBtn").addEventListener("click", function () {
 
   if (document.getElementById("date-toggle").checked) {
     dateValue = document.getElementById("habit-date").value;
-  }
+    const inputDate = new Date(dateValue);
+    if(inputDate > date){
+      schedule ++;
+    }
+    else if(inputDate.toDateString() == date.toDateString()){
+      alert("Choose a different date");
+      return;
+    }
+    else{
+      today ++;
+    }
+
+  }  
 
   if (document.getElementById("time-toggle").checked) {
     timeValue = document.getElementById("habit-time").value;
+    const [hours,minutes] = timeValue.split(":");
+    const inputTime = new Date();
+    inputTime.setHours(+hours,+minutes, 0, 0);
+    if (!document.getElementById("date-toggle").checked) {
+    if (inputTime > date) {
+      today++;
+    } else if (inputTime.getMinutes() == date.getMinutes() || inputTime < date) {
+      alert("Choose a different time");
+      return;
+    } 
   }
+  } 
+
+  if(!document.getElementById("date-toggle").checked && !document.getElementById("time-toggle").checked){
+    today++;
+  } 
 
   if (habits.length >= 10) {
     alert("You can only add up to 10 habits.");
@@ -77,6 +107,11 @@ document.getElementById("addBtn").addEventListener("click", function () {
   habits.push(habitObj);
   localStorage.setItem("habitList", JSON.stringify(habits));
   updateHabitList();
+
+  document.getElementById("today_num").innerText = today;
+  document.getElementById("sch_num").innerText = schedule;
+  
+
 });
 
 

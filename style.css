@@ -11,8 +11,6 @@ body {
   align-items: center; 
   margin-left:1rem ;
 }
-
-
 .container {
     background-color: rgb(240,248,255, 0.7);
     border-radius: 20px;
@@ -40,7 +38,6 @@ body {
    width: 7rem;
    height: 7rem;
 }
-
 .home h1{
   font-size: 2rem;
   font-family: 'Rubik', sans-serif;
@@ -51,7 +48,6 @@ body {
   font-size: 1.7rem;
   font-family: 'Rubik', sans-serif;
   color:#009ACD;
-  
 }
 .home h3{
   font-size: 1.4rem;
@@ -67,7 +63,6 @@ body {
   margin-left: 2rem;
   margin-right: 2rem;
 }
-
 .task-box {
   display: flex;
   flex-direction: column;
@@ -84,7 +79,6 @@ body {
 .task-box:hover{
   transform: scale(1.1);
 }
-
 .task-top {
   display: flex;
   justify-content: space-between;
@@ -92,22 +86,18 @@ body {
   width: 100%;
   margin-top: 20px; 
 }
-
 .task-top img {
   width: 3rem;
 }
-
 .task-top h2 {
   margin: 0;
   font-size: 2rem;
 }
-
 .tasks_text {     
   font-family: 'Rubik', sans-serif;
   text-align: left ;
   width: 100%;
 }
-
 .lists {
   display: flex;
   flex-direction: column;
@@ -126,7 +116,6 @@ body {
   font-weight:500;
    
 }
-
 #habit_textbox {
   width: 100%;
   padding: 0.5rem 1rem;
@@ -138,7 +127,6 @@ body {
   border: 1px solid gray;
   box-sizing: border-box;
 }
-
 #habit-select {    
   width: 255px;               
   margin: 0 auto;    
@@ -159,26 +147,21 @@ body {
   border: 0;
   background-color: transparent;
 }
-
 .radiobutton{
   display: flex;
   justify-content: space-between;
   width: 45%;
   gap: 1rem;
 }
-
 #habittxt{
   display: block;
   font-size: 1.5rem;  
   margin-top: 0.5rem;
   font-weight: 600;
 }
-
 input[type="checkbox"] {
   display: none;
 }
-
-
 .toggleSwitch {
   width: 40px;
   height: 20px;
@@ -189,7 +172,6 @@ input[type="checkbox"] {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .toggleSwitch::before {
   content: '';
   position: absolute;
@@ -201,15 +183,12 @@ input[type="checkbox"] {
   left: 1px;
   transition: transform 0.3s ease;
 }
-
 input[type="checkbox"]:checked + .toggleSwitch {
   background-color: #4caf50;
 }
-
 input[type="checkbox"]:checked + .toggleSwitch::before {
   transform: translateX(20px);
 }
-
 .dateTimeInput input {
   margin-top: 0.3rem;
   padding: 0.3rem 0.5rem;
@@ -247,7 +226,6 @@ input[type="checkbox"]:checked + .toggleSwitch::before {
   text-shadow: 0 0 10px #f0f0f0;
   scale: 1.1;
 }
-
 #resetBtn {
   background: transparent;
   border: none;
@@ -257,7 +235,6 @@ input[type="checkbox"]:checked + .toggleSwitch::before {
   font-family: 'Rubik', sans-serif;
   cursor: pointer;
 }
-
 .habit-list{
    font-family: 'Rubik', sans-serif;
   font-size: 1rem;
