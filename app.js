@@ -1,4 +1,6 @@
 let habits = JSON.parse(localStorage.getItem("habitList")) || [];
+let habit_Number = JSON.parse(localStorage.getItem("habitNumber")) || [0,0];
+
 updateHabitList();
 
 const date = new Date();
@@ -35,20 +37,24 @@ document.getElementById("time-toggle").addEventListener("change",function(){
     }
 });
 
-let today = 0 ;
-let schedule = 0;
 
 document.getElementById("addBtn").addEventListener("click", function () {
   let habitName = "";
   let dateValue = "";
   let timeValue = "";
   let freqValue = document.getElementById("frequency-select").value;
-  
+
   const habitSelect = document.getElementById("habit-select");
   const habitTextbox = document.getElementById("habit_textbox");
+  
+  
+  if (habits.length >= 10) {
+    alert("You can only add up to 10 habits.");
+    return;
+  }
 
   if (habitSelect.value === "custom") {
-    if (!habitTextbox.value) {
+    if (!habitTextbox.value.trim()) {
       alert("Please enter a habit name!");
       return;
     }
@@ -59,42 +65,10 @@ document.getElementById("addBtn").addEventListener("click", function () {
 
   if (document.getElementById("date-toggle").checked) {
     dateValue = document.getElementById("habit-date").value;
-    const inputDate = new Date(dateValue);
-    if(inputDate > date){
-      schedule ++;
-    }
-    else if(inputDate.toDateString() == date.toDateString()){
-      alert("Choose a different date");
-      return;
-    }
-    else{
-      today ++;
-    }
-
-  }  
+  }
 
   if (document.getElementById("time-toggle").checked) {
     timeValue = document.getElementById("habit-time").value;
-    const [hours,minutes] = timeValue.split(":");
-    const inputTime = new Date();
-    inputTime.setHours(+hours,+minutes, 0, 0);
-    if (!document.getElementById("date-toggle").checked) {
-    if (inputTime > date) {
-      today++;
-    } else if (inputTime.getMinutes() == date.getMinutes() || inputTime < date) {
-      alert("Choose a different time");
-      return;
-    } 
-  }
-  } 
-
-  if(!document.getElementById("date-toggle").checked && !document.getElementById("time-toggle").checked){
-    today++;
-  } 
-
-  if (habits.length >= 10) {
-    alert("You can only add up to 10 habits.");
-    return;
   }
 
   const habitObj = {
@@ -104,39 +78,79 @@ document.getElementById("addBtn").addEventListener("click", function () {
     time: timeValue,
   };
 
+ 
+  const exists = habits.some(habit =>
+    habit.name === habitObj.name &&
+    habit.frequency === habitObj.frequency &&
+    habit.date === habitObj.date &&
+    habit.time === habitObj.time
+  );
+
+  if (exists) {
+    alert("This task already exists! Please choose a different time/date");
+    return;
+  }
+
+  if (document.getElementById("date-toggle").checked) {
+    const inputDate = new Date(dateValue);
+    if (inputDate > date) {
+      habit_Number[1] += 1;
+    } else if (inputDate.toDateString() === date.toDateString()) {
+      alert("Choose a different date");
+      return;
+    } else {
+      habit_Number[0] += 1; //todays number
+    }
+  } else if (document.getElementById("time-toggle").checked) {
+    const [hours, minutes] = timeValue.split(":");
+    const inputTime = new Date();
+    inputTime.setHours(+hours, +minutes, 0, 0);
+
+    if (inputTime > date) {
+      habit_Number[0] += 1;
+    } else if (inputTime.getMinutes() === date.getMinutes()) {
+      alert("Choose a different time");
+      return;
+    }
+  } else {    
+    habit_Number[0] += 1;
+  }
   habits.push(habitObj);
   localStorage.setItem("habitList", JSON.stringify(habits));
+  localStorage.setItem("habitNumber", JSON.stringify(habit_Number));
   updateHabitList();
-
-  document.getElementById("today_num").innerText = today;
-  document.getElementById("sch_num").innerText = schedule;
   
-
 });
 
-
 function updateHabitList() {
+  if(document.getElementById("habit-select").value === "custom"){
+    document.getElementById("habit_textbox").value = "";
+  }
   const container = document.getElementById("habit-list-container");
   container.innerHTML = ""; 
-
+  document.getElementById("today_num").innerText = habit_Number[0];
+  document.getElementById("sch_num").innerText = habit_Number[1];
   habits.forEach((habit, index) => {
     const item = document.createElement("div");   
 
     const habitHTML = `
-      ${index + 1}. ${habit.name}: ${habit.frequency} <br>
+      ${index + 1}. ${habit.name.toUpperCase()}: ${habit.frequency} <br>
       ${habit.date ? "Start Date: " + habit.date + "<br>": ""}
       ${habit.time ? "Time: " + habit.time + "<br>" : ""}
-      <br>
+      
     `;
-
     item.innerHTML = habitHTML;
     container.appendChild(item);
+    
   });
+  
 }
 
 document.getElementById("resetBtn").addEventListener("click", function(){
   localStorage.removeItem("habitList");
+  localStorage.removeItem("habitNumber");
   habits = [];
+  habit_Number = [0,0];  
   updateHabitList();
 });
 
