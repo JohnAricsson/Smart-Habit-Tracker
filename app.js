@@ -147,11 +147,14 @@ function updateHabitList() {
 }
 
 document.getElementById("resetBtn").addEventListener("click", function(){
+  const confirmed = confirm("Are you sure you want to reset the habit list?");
+  if (confirmed){
   localStorage.removeItem("habitList");
   localStorage.removeItem("habitNumber");
   habits = [];
   habit_Number = [0,0];  
   updateHabitList();
+  }
 });
 
 
